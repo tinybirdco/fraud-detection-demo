@@ -1,0 +1,14 @@
+DESCRIPTION >
+	This command selects the user_id and counts the number of declined transactions for each user. It groups the results by user_id and filters only those with 5 or more declined transactions. This could indicate a potential fraudulent activity.
+
+
+NODE large_number_of_declined_transactions_0
+SQL >
+
+    SELECT user_id, COUNT(*) as num_transactions
+    FROM transactions
+    GROUP BY user_id
+    HAVING COUNT(*) > 3
+    ORDER BY num_transactions DESC
+
+

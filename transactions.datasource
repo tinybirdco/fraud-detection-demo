@@ -1,0 +1,15 @@
+
+SCHEMA >
+    `amount` String `json:$.amount`,
+    `browser` String `json:$.browser`,
+    `fraud_flag` UInt8 `json:$.fraud_flag`,
+    `ip_address` String `json:$.ip_address`,
+    `is_declined` UInt8 `json:$.is_declined`,
+    `location` String `json:$.location`,
+    `timestamp` DateTime64(3) `json:$.timestamp`,
+    `transaction_id` String `json:$.transaction_id`,
+    `user_id` String `json:$.user_id`
+
+ENGINE "MergeTree"
+ENGINE_PARTITION_KEY "toYear(timestamp)"
+ENGINE_SORTING_KEY "timestamp, location, transaction_id, user_id"

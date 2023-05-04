@@ -1,0 +1,14 @@
+DESCRIPTION >
+	This command selects the user_id and counts the number of transactions made outside of the user's usual location. It filters only those with 2 or more transactions made from unusual locations. The USER_ID should be replaced with the actual user ID to detect fraud for a specific user.
+
+
+NODE detect_purchases_made_outside_of_users_usual_location_0
+SQL >
+
+    SELECT user_id, COUNT(*) as num_transactions
+    FROM transactions
+    WHERE location NOT IN (SELECT DISTINCT location FROM transactions WHERE user_id = 'USER_ID')
+    GROUP BY user_id
+    HAVING COUNT(*) > 2
+
+

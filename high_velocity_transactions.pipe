@@ -1,0 +1,15 @@
+DESCRIPTION >
+	This command selects the user_id and counts the number of transactions that occurred within the last hour. It groups the results by user_id and filters only those with 10 or more transactions in the last hour. This could indicate a potential fraudulent activity.
+
+
+NODE high_velocity_transactions_0
+SQL >
+
+    SELECT user_id, COUNT(*) as num_transactions
+    FROM transactions
+    WHERE timestamp >= NOW() - INTERVAL '1' HOUR
+    GROUP BY user_id
+    HAVING COUNT(*) > 10
+    ORDER BY num_transactions DESC
+
+

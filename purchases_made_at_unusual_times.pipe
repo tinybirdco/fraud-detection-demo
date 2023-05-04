@@ -1,0 +1,14 @@
+DESCRIPTION >
+	This command selects the user_id and counts the number of transactions made between 1:00 AM and 5:00 AM. It groups the results by user_id and filters only those with 5 or more transactions made during this time. This could indicate a potential fraudulent activity.
+
+
+NODE purchases_made_at_unusual_times_0
+SQL >
+
+    SELECT user_id, COUNT(*) as num_transactions
+    FROM transactions
+    WHERE timestamp >= NOW() - INTERVAL '1' DAY
+    GROUP BY user_id
+    ORDER BY num_transactions DESC
+
+

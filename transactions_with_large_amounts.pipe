@@ -1,0 +1,13 @@
+DESCRIPTION >
+	This command selects the transaction_id, user_id, and amount columns for transactions where the amount is greater than $900. This could indicate a potential fraudulent transaction
+
+
+NODE transactions_with_large_amounts_0
+SQL >
+
+    SELECT transaction_id, user_id, amount
+    FROM transactions
+    WHERE CAST(amount AS Float64) > 900
+    ORDER BY amount DESC
+
+

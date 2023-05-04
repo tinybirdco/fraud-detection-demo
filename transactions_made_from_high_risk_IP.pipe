@@ -1,0 +1,14 @@
+DESCRIPTION >
+	This command selects the user_id and counts the number of transactions made from IP addresses with a high-risk prefix (e.g., 123456, 234567, 345678). It groups the results by user_id and filters only those with 2 or more transactions made from high-risk IP addresses. This could indicate a potential fraudulent activity
+
+
+NODE transactions_made_from_high_risk_IP_0
+SQL >
+
+    SELECT user_id, COUNT(*) as num_transactions
+    FROM transactions
+    WHERE LEFT(REPLACE(location, '.', ''), 6) IN ('245.13.16.197', '234567', '345678')
+    GROUP BY user_id
+    HAVING COUNT(*) > 1
+
+

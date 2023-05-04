@@ -1,0 +1,14 @@
+DESCRIPTION >
+	This command selects the user_id, average (avg_amount), and standard deviation (stdev_amount) of the amount for each user. It then filters only users whose maximum transaction amount is more than 2 standard deviations away from the average. This could indicate a potential fraudulent activity.
+
+
+NODE unusual_spending_patterns_0
+SQL >
+
+    SELECT user_id, AVG(CAST(amount AS Float64)) as avg_amount, 
+      SQRT(SUM(CAST(amount AS Float64) * CAST(amount AS Float64)) / COUNT(*) - AVG(CAST(amount AS Float64)) * AVG(CAST(amount AS Float64))) as stdev_amount
+    FROM transactions
+    GROUP BY user_id
+    HAVING AVG(CAST(amount AS Float64)) + 2 * SQRT(SUM(CAST(amount AS Float64) * CAST(amount AS Float64)) / COUNT(*) - AVG(CAST(amount AS Float64)) * AVG(CAST(amount AS Float64))) < MAX(CAST(amount AS Float64))
+
+

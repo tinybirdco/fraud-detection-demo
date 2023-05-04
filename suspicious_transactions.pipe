@@ -1,0 +1,18 @@
+DESCRIPTION >
+	Filters all transactions that meet the criteria of having an amount greater than $900 and a location outside of the USA.
+
+
+NODE over_900_amount_outside_of_the_usa
+SQL >
+
+    SELECT
+      user_id,
+      transaction_id,
+      amount,
+      location,
+      timestamp
+    FROM transactions
+    WHERE CAST(amount AS Float64) > 900
+    AND location != 'USA'
+
+

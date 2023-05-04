@@ -1,0 +1,15 @@
+{
+    "name": "fraud-detection-demo",
+    "version": "1.0.0",
+    "description": "Demo showcasing how to use Tinybird to detect fraudulent transactions in real-time.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "mockingbird-cli tinybird --datasource=transactions --token=[PASTE_YOUR_TINYBIRD_ADMIN_TOKEN_HERE] --endpoint=eu_gcp --schema='schema.json' --eps 100"
+    },
+    "author": "Joe Karlsson",
+    "license": "ISC",
+    "dependencies": {
+        "@tinybirdco/mockingbird-cli": "^1.1.0"
+    }
+}
