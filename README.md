@@ -16,25 +16,25 @@ Click this button to deploy the data project to Tinybird 👇
 
 Follow the guided process, and your Tinybird workspace is now ready to start receiving events.
 
-1. Setup this repository locally
+2. Setup this repository locally
 
 ```bash
 git clone https://github.com/tinybirdco/fraud-detection-demo.git
 cd fraud-detection-demo
 ```
 
-1. Install dependencies
+3. Install dependencies
 
 ```bash
 npm install
 ```
 
-1. Install and configure the Tinybird CLI
+4. Install and configure the Tinybird CLI
 
 To start working with data projects as if they were software projects, First, install the Tinybird CLI in a virtual environment.
 You'll need python3 installed.
 
-Check the [CLI documentation](https://docs.tinybird.co/cli.html) for other installation options and troubleshooting.
+Check the [Tinybird CLI documentation](https://docs.tinybird.co/cli.html) for other installation options and troubleshooting tips.
 
 ```bash
 python3 -mvenv .e
@@ -55,13 +55,13 @@ Once you have successfully authenticated with Tinybird, you can run the followin
 tb push --no-check
 ```
 
-1. Start sending data to Tinybird with Mockingbird. Check the [Mockingbird CLI documentation](https://mockingbird.tinybird.co/docs) for other installation, options and troubleshooting.
+5. Start sending data to Tinybird with Mockingbird. Check the [Mockingbird CLI documentation](https://mockingbird.tinybird.co/docs) for other installation, options and troubleshooting. Note, that you will need to paste in your Tinybird token.
 
 ```bash
 mockingbird-cli tinybird --datasource=transactions --token=[PASTE_YOUR_TOKEN_FROM_TINYBIRD] --endpoint=eu_gcp --schema='schema.json' --eps 100
 ```
 
-1. Go to your [Tinybird workspace](https://ui.tinybird.co) and check the data is flowing.
+6. Go to your [Tinybird workspace](https://ui.tinybird.co) and check the data is flowing.
 
 ## Authors
 
