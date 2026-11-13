@@ -9,6 +9,6 @@ SQL >
     FROM transactions
     WHERE location NOT IN (SELECT DISTINCT location FROM transactions WHERE user_id = 'USER_ID')
     GROUP BY user_id
-    HAVING COUNT(*) > 2
+    HAVING COUNT(*) >= 2
 
 

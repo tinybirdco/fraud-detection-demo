@@ -55,10 +55,10 @@ Once you have successfully authenticated with Tinybird, you can run the followin
 tb push --no-check
 ```
 
-5. Start sending data to Tinybird with Mockingbird. Check the [Mockingbird CLI documentation](https://mockingbird.tinybird.co/docs) for other installation, options and troubleshooting. Note, that you will need to paste in your Tinybird token.
+5. Start sending data to Tinybird with Mockingbird. Check the [Mockingbird CLI documentation](https://mockingbird.tinybird.co/docs) for other installation, options and troubleshooting. Note, that you will need to paste in your Tinybird token, and set `--endpoint` to your workspace region (`gcp_europe_west3`, `gcp_us_east4`, `aws_us_east_1`, `aws_eu_central_1` or `aws_us_west_2`).
 
 ```bash
-mockingbird-cli tinybird --datasource=transactions --token=[PASTE_YOUR_TOKEN_FROM_TINYBIRD] --endpoint=eu_gcp --schema='schema.json' --eps 100
+npx mockingbird-cli tinybird --datasource=transactions --token=[PASTE_YOUR_TOKEN_FROM_TINYBIRD] --endpoint=gcp_europe_west3 --schema='schema.json' --eps 100
 ```
 
 6. Go to your [Tinybird workspace](https://ui.tinybird.co) and check the data is flowing.

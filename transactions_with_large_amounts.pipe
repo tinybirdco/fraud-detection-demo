@@ -8,6 +8,6 @@ SQL >
     SELECT transaction_id, user_id, amount
     FROM transactions
     WHERE CAST(amount AS Float64) > 900
-    ORDER BY amount DESC
+    ORDER BY CAST(amount AS Float64) DESC
 
 

@@ -8,7 +8,10 @@ SQL >
     SELECT user_id, COUNT(*) as num_transactions
     FROM transactions
     WHERE timestamp >= NOW() - INTERVAL '1' DAY
+      AND toHour(timestamp) >= 1
+      AND toHour(timestamp) < 5
     GROUP BY user_id
+    HAVING num_transactions >= 5
     ORDER BY num_transactions DESC
 
 

@@ -7,7 +7,7 @@ SQL >
 
     SELECT user_id, COUNT(*) as num_transactions
     FROM transactions
-    WHERE LEFT(REPLACE(location, '.', ''), 6) IN ('245.13.16.197', '234567', '345678')
+    WHERE LEFT(REPLACE(ip_address, '.', ''), 6) IN ('123456', '234567', '345678')
     GROUP BY user_id
     HAVING COUNT(*) > 1
 

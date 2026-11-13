@@ -9,7 +9,7 @@ SQL >
     FROM transactions
     WHERE timestamp >= NOW() - INTERVAL '1' HOUR
     GROUP BY user_id
-    HAVING COUNT(*) > 10
+    HAVING COUNT(*) >= 10
     ORDER BY num_transactions DESC
 
 
